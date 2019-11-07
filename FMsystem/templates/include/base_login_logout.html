@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Join Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The login and Registration page for fuel management system" />
+    <meta name="keywords" content="fuel,management,fuel management,analysis,expenses,expenses analysis" />
+    <meta name="author" content="Winner Emeto" />
+    <link rel="shortcut icon" href="../static/img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate-custom.css' %}" />
+</head>
+
+<body>
+    <div class="container">
+        <section>
+            <div id="container_demo">
+               <a class="hiddenanchor" id="toregister"></a>
+                <a class="hiddenanchor" id="tologin"></a>
+                <div id="wrapper">
+                    <div id="login" class="animate form">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

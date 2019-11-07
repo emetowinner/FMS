@@ -1,0 +1,136 @@
+{% extends 'include/base_nav.html' %}
+{% load static %}
+{% block content %}
+  <div class="content">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-user">
+          <div class="image">
+            <img src="{% static '../static/img/bg5.jpg' %}" alt="...">
+          </div>
+          <div class="card-body">
+            <div class="author">
+              <img class="avatar border-gray" src="{% static '../static/img/mike.jpg' %}" alt="Picture of a person">
+              <p class="description">
+                @{{request.user}}
+              </p>
+            </div>
+            <p class="description text-center">
+              "I like the way you work it
+              <br> No diggity
+              <br> I wanna bag it up"
+            </p>
+          </div>
+          <div class="card-footer">
+            <hr>
+            <div class="input-container">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 col-6 ml-auto">
+                  <h5>12
+                    <br>
+                    <small><b>Litter</b></small>
+                  </h5>
+                </div>
+                <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+                  <h5><b>₦</b>145
+                    <br>
+                    <small><b>Price</b></small>
+                  </h5>
+                </div>
+                <div class="col-lg-5 mr-auto">
+                  <h5><b>₦</b>20000
+                    <br>
+                    <small><b>Spent</b></small>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card card-user">
+          <div class="card-header">
+            <h5 class="card-title">Edit Profile</h5>
+          </div>
+          <div class="card-body">
+            <form action="" autocomplete="on" method="POST">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 pr-1">
+                  <div class="form-group">
+                    <label>First Name</label>
+                    {{form.first_name }}
+                  </div>
+                </div>
+                <div class="col-md-6 pl-1">
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    {{form.last_name }}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 pl-1">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    {{form.email}}
+                  </div>
+                </div>
+              </div>
+              {{form.profile_picture }}
+              <div class="row">
+                <div class="col-md-6 pr-1">
+                  <div class="form-group">
+                    <label>Profile Picture</label>
+                  </div>
+                </div>
+                <div class="col-md-6 pl-1">
+                  <div class="form-group">
+                    <label>Birthday</label>
+                    {{form.birth_date }}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Address</label>
+                    {{form.address }}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 pr-1">
+                  <div class="form-group">
+                    <label>City</label>
+                    {{form.city}}
+                  </div>
+                </div>
+                <div class="col-md-6 px-1">
+                  <div class="form-group">
+                    <label>Country</label>
+                    {{form.country}}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>About Me</label>
+                    {{form.about_me}}
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="update ml-auto mr-auto">
+                  <input type="submit" class="btn btn-primary btn-round" value="Update Profile"/>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
