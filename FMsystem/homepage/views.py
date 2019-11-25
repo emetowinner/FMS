@@ -2,16 +2,20 @@ from django.contrib.auth import logout, authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib import messages
+from .forms import UserForm
 
 # Create your views here.
 
 
 def index(request,*args,**kwargs):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = UserForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            user = form.save(commit=False)
             username = form.cleaned_data.get('username')
+            password  = form.cleaned_data.get('password')
+            user.set_password(password)
+            user.save()
             login(request, user)
             return redirect("dashboard")
 
@@ -23,7 +27,7 @@ def index(request,*args,**kwargs):
                           template_name = "index.html",
                           context={"form":form})
 
-    form = UserCreationForm
+    form = UserForm()
     return render(request = request,
                   template_name = "index.html",
                   context={"form":form})

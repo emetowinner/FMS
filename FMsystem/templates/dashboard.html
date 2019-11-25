@@ -113,10 +113,12 @@
         <div class="card ">
           <div class="card-header ">
             <h5 class="card-title">Purchase Rate</h5>
-            <p class="card-category">for the past 31 days</p>
+            <p class="card-category">for the past years</p>
           </div>
           <div class="card-body ">
-            <canvas id=chartHours width="400" height="100"></canvas>
+            <div class="col">
+              {{ div | safe }}
+            </div>
           </div>
           <div class="card-footer ">
             <hr>
